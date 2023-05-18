@@ -8,7 +8,7 @@ const Footer = () => {
     return (
         <footer className='footer '>
             
-          <div className='row row-cols-4 container mx-auto my-5 '>
+          <div className='row row-cols-md-4 row-cols-2  container mx-auto my-5 '>
 
           <section>
 

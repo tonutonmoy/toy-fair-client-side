@@ -6,6 +6,7 @@ import Register from "../Component/Register/Register";
 import AddAToy from "../Component/AddAToy/AddAToy";
 import UpdateToy from "../Component/UpdateToy/UpdateToy";
 import AllToys from "../Component/AllToys/AllToys";
+import MyToys from "../Component/MyToys/MyToys";
 
 const router = createBrowserRouter([
     {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
         {
           path:'/allToys',
           element: <AllToys></AllToys>
+        },
+        {
+          path:'/myToys',
+          element: <MyToys></MyToys>
         },
 
       ]
