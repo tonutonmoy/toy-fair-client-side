@@ -9,14 +9,15 @@ import gallery6 from '../../assets/gallery/pexels-photo-5434079.jpeg'
 import gallery7 from '../../assets/gallery/pexels-photo-8504400.jpeg'
 import gallery8 from '../../assets/gallery/What-is-the-purpose-of-a-toy-car.jpg'
 import gallery9 from '../../assets/gallery/What_is_the_purpose_of_a_toy_car_-_1.jpg'
-import gallery10 from '../../assets/gallery/young-boy-toy-bike-3840100.jpg'
+
 
 const HomeGallery = () => {
     return (
-        <div>
+        <div style={{marginTop:'100px'}}>
 
+             <h2 className='gallery-title'>Gallery of Toys</h2>
 
-        <div className='row row-cols-md-5  gallery-container  w-75 gap-3 mx-auto' >
+        <div className='row row-cols-md-5  gallery-container my-5  w-75 gap-3 mx-auto' >
             
             <div className="home-gallery-container"><img src={gallery1} alt="" className="home-gallery-img" /></div>
 
@@ -36,7 +37,7 @@ const HomeGallery = () => {
 
             <div className="home-gallery-container"><img src={gallery9} alt="" className="home-gallery-img" /></div>
 
-            <div className="home-gallery-container"><img src={gallery10} alt="" className="home-gallery-img" /></div>
+          
         </div>
 
       
