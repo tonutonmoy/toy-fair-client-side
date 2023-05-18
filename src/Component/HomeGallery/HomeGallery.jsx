@@ -13,7 +13,7 @@ import gallery9 from '../../assets/gallery/What_is_the_purpose_of_a_toy_car_-_1.
 
 const HomeGallery = () => {
     return (
-        <div style={{marginTop:'100px'}}>
+        <div style={{marginTop:'200px'}}>
 
              <h2 className='gallery-title'>Gallery of Toys</h2>
 

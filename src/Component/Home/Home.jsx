@@ -1,4 +1,5 @@
 import HomeBanner from '../HomeBanner/HomeBanner';
+import HomeCategory from '../HomeCategory/HomeCategory';
 import HomeGallery from '../HomeGallery/HomeGallery';
 import './Home.css'
 
@@ -9,6 +10,8 @@ const Home = () => {
             <HomeBanner></HomeBanner>
 
             <HomeGallery></HomeGallery>
+
+            <HomeCategory></HomeCategory>
         </div>
     );
 };
