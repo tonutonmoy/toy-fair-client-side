@@ -1,0 +1,19 @@
+.active{
+    background-color: rgb(148, 20, 20);
+   
+    padding: 10px;
+    border-radius: 10px;
+    
+    color: rgb(255, 255, 255);
+    font-size: 17px;
+    font-weight: 400;
+    text-decoration: none;
+    border: none;
+    
+    
+}
+
+.active:hover{
+    background-color: rgb(90, 16, 16);
+    color: white;
+}
