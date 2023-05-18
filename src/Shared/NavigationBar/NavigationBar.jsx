@@ -47,7 +47,7 @@ const NavigationBar = () => {
 
                   
                 <div>
-                    <ActiveLink to='/addAToys'>Add A Toys</ActiveLink>
+                    <ActiveLink to='/addAToy'>Add A Toy</ActiveLink>
                 </div>
 
                 <div>
