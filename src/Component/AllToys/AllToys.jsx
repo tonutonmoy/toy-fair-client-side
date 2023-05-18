@@ -3,17 +3,27 @@ import Table from 'react-bootstrap/Table';
 
 
 const AllToys = () => {
+
+    const searchToyHandler=(e)=>{
+
+        event.preventDefault();
+
+        const toyName= e.target.toyName.value;
+
+        console.log(toyName)
+    }
+
     return (
         <div>
 
 
-              <div className='d-flex w-25 mx-auto my-5 pt-5'>
-              <input className="form-control me-2" type="search" placeholder="Toy Name" aria-label="Search"/>
+              <form onSubmit={searchToyHandler} className='d-flex w-25 mx-auto my-5 pt-5'>
+              <input className="form-control me-2" name='toyName' type="search" placeholder="Toy Name" aria-label="Search" required/>
                <button className="btn btn-outline-dark" type="submit">Search</button>
-              </div>
+              </form>
             
 
-                <Table className='w-75 mx-auto' striped bordered hover>
+                <Table className='container mx-auto' striped bordered hover>
       <thead>
         <tr>
           
@@ -42,13 +52,14 @@ const AllToys = () => {
         </tr>
         <tr>
           <td>3</td>
-          <td colSpan={2}>Larry the Bird</td>
+          <td >Larry the Bird</td>
           <td>@twitter</td>
           <td>@twitter</td>
         </tr>
         <tr>
           <td>3</td>
-          <td colSpan={2}>Larry the Bird</td>
+          <td>Larry the Bird</td>
+          <td>@twitter</td>
           <td>@twitter</td>
           <td>@twitter</td>
          
