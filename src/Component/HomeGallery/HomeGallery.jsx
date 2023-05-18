@@ -16,7 +16,7 @@ const HomeGallery = () => {
         <div>
 
 
-        <div className='row row-cols-md-5   w-75 gap-3 mx-auto' >
+        <div className='row row-cols-md-5  gallery-container  w-75 gap-3 mx-auto' >
             
             <div className="home-gallery-container"><img src={gallery1} alt="" className="home-gallery-img" /></div>
 
