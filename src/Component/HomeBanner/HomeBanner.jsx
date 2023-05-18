@@ -36,15 +36,45 @@ const HomeBanner = () => {
 
 
         <SwiperSlide>
-        <img className="banner-slider-img" src={banner2} alt="" />
+        
+       <div className="banner-div">
+       </div>
+       <img className="banner-slider-img" src={banner2} alt="" />
+
+         <div className="banner-slider-title-container">
+            <h2 className="banner-slider-h2"> <span className="banner-title-span">E</span>xperience the Ultimate online toy shopping brought to you by Toy.fair.</h2>
+            <p className="banner-slider-p">Official Distributor of Mattel, Funskool, Winfun, Frank & Zephyr Toy Brands in  <span className="banner-p-span">Bangladesh</span></p>
+            <button className="banner-slider-button">shop Now</button>
+         
+       </div>
         </SwiperSlide>
 
         <SwiperSlide>  
-            <img className="banner-slider-img" src={banner3} alt="" />
+          
+       <div className="banner-div">
+       </div>
+       <img className="banner-slider-img" src={banner3} alt="" />
+
+         <div className="banner-slider-title-container">
+            <h2 className="banner-slider-h2"> <span className="banner-title-span">E</span>xperience the Ultimate online toy shopping brought to you by Toy.fair.</h2>
+            <p className="banner-slider-p">Official Distributor of Mattel, Funskool, Winfun, Frank & Zephyr Toy Brands in  <span className="banner-p-span">Bangladesh</span></p>
+            <button className="banner-slider-button">shop Now</button>
+         
+       </div>
         </SwiperSlide>
 
         <SwiperSlide>
-        <img className="banner-slider-img" src={banner4} alt="" />
+       
+        <div className="banner-div">
+       </div>
+       <img className="banner-slider-img" src={banner4} alt="" />
+
+         <div className="banner-slider-title-container">
+            <h2 className="banner-slider-h2"> <span className="banner-title-span">E</span>xperience the Ultimate online toy shopping brought to you by Toy.fair.</h2>
+            <p className="banner-slider-p">Official Distributor of Mattel, Funskool, Winfun, Frank & Zephyr Toy Brands in  <span className="banner-p-span">Bangladesh</span></p>
+            <button className="banner-slider-button">shop Now</button>
+         
+       </div>
         </SwiperSlide>
         ...
       </Swiper>

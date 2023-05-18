@@ -25,7 +25,7 @@
 }
 .banner-p-span{
 
-    color: rgb(14, 143, 25);
+    color: rgb(66, 160, 29);
   
 
     font-weight: bolder;
@@ -69,6 +69,8 @@
    border-radius: 10px;
 
    border: 1px solid white;
+
+   padding: 15px 20px;
    
     
 
