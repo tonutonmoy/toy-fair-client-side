@@ -17,7 +17,7 @@ const HomeGallery = () => {
 
              <h2 className='gallery-title'>Gallery of Toys</h2>
 
-        <div className='row row-cols-md-5  gallery-container my-5  w-75 gap-3 mx-auto' >
+        <div className=' row row-cols-md-4 container mx-auto justify-content-center justify-content-around' >
             
             <div className="home-gallery-container"><img src={gallery1} alt="" className="home-gallery-img" /></div>
 
