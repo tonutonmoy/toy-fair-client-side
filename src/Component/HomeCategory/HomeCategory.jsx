@@ -18,7 +18,7 @@ const HomeCategory = () => {
   useEffect(()=>{
 
 
-     fetch('toy.json')
+     fetch('http://localhost:5000/allToys')
      .then(res=>res.json())
      .then(res=> {
 
