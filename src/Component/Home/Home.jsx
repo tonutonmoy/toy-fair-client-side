@@ -7,6 +7,8 @@ import './Home.css'
 
 const Home = () => {
     return (
+
+        
         <div>
            
             <HomeBanner></HomeBanner>
