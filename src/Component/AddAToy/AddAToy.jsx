@@ -1,7 +1,9 @@
+import { useEffect } from 'react';
 import './AddAToy.css'
 
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import Swal from 'sweetalert2'
 
 
 
@@ -36,7 +38,40 @@ const AddAToy = () => {
         }
 
         console.log(addAToyInfo)
+
+
+        
+        
+          fetch(`http://localhost:5000/addAToy`,{
+            method:'POST',
+            headers:{
+              'content-type':'application/json'
+            },
+
+            body: JSON.stringify(addAToyInfo)
+          })
+          .then(res=>res.json())
+          .then(res=> {
+            
+            if(res.insertedId){
+
+              Swal.fire({
+                title: 'Success',
+                text: 'successfully done',
+                icon: 'success',
+                confirmButtonText: 'Ok'
+              })
+
+
+              e.target.reset()
+
+            }
+           
+          
+          })
+          .catch(error=>console.log(error))
        
+      
 
 
     }
