@@ -13,6 +13,8 @@ import banner4 from '../../assets/banner/toys-2938508_960_720.jpg'
 
 const HomeBanner = () => {
     return (
+
+      <div className="banner-slider-main-container">
         
         <Swiper
         spaceBetween={50}
@@ -76,8 +78,10 @@ const HomeBanner = () => {
          
        </div>
         </SwiperSlide>
-        ...
+       
       </Swiper>
+
+      </div>
     );
 };
 

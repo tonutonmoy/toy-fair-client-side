@@ -1,4 +1,8 @@
+.banner-slider-main-container{
 
+    box-shadow: 30px 30px 30px black;
+    border-bottom: 10px solid rgb(255, 255, 255);
+}
 .banner-slider-title-container{
 
     width: 30%;
@@ -78,3 +82,78 @@
 
 }
 
+
+
+@media only screen and (max-width: 768px) {
+    .banner-title-span{
+
+        font-size: 30px;
+    }
+    .banner-slider-h2{
+        font-size: 25px;
+    }
+
+
+    .banner-slider-p{
+        font-size: 18px;
+    }
+
+
+    
+.banner-slider-button{
+
+
+   padding: 15px;
+   
+    
+
+    
+
+}
+
+
+
+  }
+
+@media only screen and (max-width: 380px) {
+    .banner-title-span{
+
+        font-size: 30px;
+    }
+    .banner-slider-h2{
+        font-size: 18px;
+    }
+
+
+    .banner-slider-p{
+        font-size: 13px;
+    }
+
+    .banner-slider-button{
+
+
+        padding: 10px;
+
+        font-weight: 400;
+        font-size: 12px;
+        
+         
+     
+         
+     
+     }
+     .banner-slider-title-container{
+
+        width: 30%;
+        position: absolute;
+        bottom: 10%;
+        left: 10%;
+    
+    
+       
+    
+    }
+     
+
+
+  }
