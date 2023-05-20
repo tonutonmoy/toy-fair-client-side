@@ -45,7 +45,11 @@ const ViewDetails = () => {
            </Card.Text>
            
            <Card.Text className='my-3 tab-card-span'>
-           <span style={{fontWeight:'700'}} >SubCategory: </span> {data?.subCategory}
+           <span style={{fontWeight:'700'}} >SellerName: </span> {data?.sellerName}
+           </Card.Text>
+
+           <Card.Text className='my-3 tab-card-span'>
+           <span style={{fontWeight:'700'}} >SellerEmail: </span> {data?.sellerEmail}
            </Card.Text>
            
            <Card.Text className='my-3 tab-card-span'>

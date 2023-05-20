@@ -85,11 +85,8 @@ const AllToys = () => {
 
             <td className='table-td '>
 
-              <button  className='tab-card-button' style={{borderRadius:"10px",padding:'7px'}}> 
-              
-                <Link to={`/viewDetails/${d?._id}`}>view details</Link>
-
-               </button>
+            <Link className='tab-card-button p-2 d-block text-center rounded' to={`/viewDetails/${d?._id}`}
+          style={{textDecoration:'none',color:"white"}}>View Details</Link>
             </td>
            
           </tr>

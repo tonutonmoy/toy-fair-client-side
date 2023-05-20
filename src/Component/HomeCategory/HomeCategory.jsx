@@ -103,7 +103,14 @@ const HomeCategory = () => {
            value={ parseFloat(car?.rating)}  readonly />
           
           </div>
-          <Button className='tab-card-button' variant="primary"><Link to={`/viewDetails/${car?._id}`}>View Details</Link></Button>
+
+          <div className='mt-4'>
+          <Link className='tab-card-button p-2 d-block text-center rounded' to={`/viewDetails/${car?._id}`}
+          style={{textDecoration:'none',color:"white"}}>View Details</Link>
+          </div>
+
+
+
           </Card.Body>
           </Card>
           
@@ -154,7 +161,16 @@ const HomeCategory = () => {
             value={ parseFloat(car?.rating)}  readonly />
            
            </div>
-           <Button className='tab-card-button' variant="primary">View Details</Button>
+
+
+
+        <div className='mt-4'>
+          <Link className='tab-card-button p-2 d-block text-center rounded' to={`/viewDetails/${car?._id}`}
+          style={{textDecoration:'none',color:"white"}}>View Details</Link>
+          </div>
+
+
+
            </Card.Body>
            </Card>
            
@@ -206,7 +222,15 @@ const HomeCategory = () => {
             value={ parseFloat(car?.rating)}  readonly />
            
            </div>
-           <Button className='tab-card-button' variant="primary">View Details</Button>
+
+
+           <div className='mt-4'>
+          <Link className='tab-card-button p-2 d-block text-center rounded' to={`/viewDetails/${car?._id}`}
+          style={{textDecoration:'none',color:"white"}}>View Details</Link>
+          </div>
+
+
+
            </Card.Body>
            </Card>
            
