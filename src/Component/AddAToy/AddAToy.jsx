@@ -37,7 +37,7 @@ const AddAToy = () => {
             description
         }
 
-        console.log(addAToyInfo)
+        
 
 
         

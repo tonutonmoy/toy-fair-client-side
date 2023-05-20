@@ -5,9 +5,27 @@ import Navbar from 'react-bootstrap/Navbar';
 
 import logo from '../../assets/logo/1000_F_351310893_Bn4dxRZS4sQ7aJiqgk9guUyIDVrPQm3R.jpg'
 import ActiveLink from '../../ActiveLink/ActiveLink';
+import { useContext } from 'react';
+import { AuthProvider } from '../../Provider/Provider';
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 
 
 const NavigationBar = () => {
+
+    const {logOut}=useContext(AuthProvider);
+  
+    const logOutHandler=()=>{
+
+       logOut()
+       .then(()=>{
+
+        toast.success('Log Out done')
+
+       })
+       .catch(error=>console.log(error))
+    }
+
     return (
         <Navbar className='py-4' collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Container >
@@ -59,11 +77,11 @@ const NavigationBar = () => {
                 </div>
 
                 <div >
-                    <button>LogOut</button>
+                    <button onClick={logOutHandler}>LogOut</button>
                 </div>
 
             </div>
-
+            <ToastContainer/>
         </div>
              
            

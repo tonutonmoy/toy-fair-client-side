@@ -1,37 +1,100 @@
 import './MyToys.css'
 import { RxUpdate} from 'react-icons/rx';
 import {RiDeleteBin6Line } from 'react-icons/ri';
+import { useContext, useEffect, useState } from 'react';
+import { AuthProvider } from '../../Provider/Provider';
+import { Rating } from '@smastrom/react-rating'
+
+import '@smastrom/react-rating/style.css'
 
 const MyToys = () => {
+
+        const {user}=useContext(AuthProvider);
+
+        const [myToysData,setMyToysData]=useState([]);
+
+       
+        
+    
+
+       
+        const url= `http://localhost:5000/myToys?email=${user?.email}`;
+
+        useEffect(()=>{
+           
+
+             
+            fetch(url)
+            .then(res=>res.json())
+            .then(res=> {
+                
+                console.log(res)
+                setMyToysData(res)
+            
+            })
+            .catch(error=> console.log(error))
+    
+
+        },[url])
+
+  
+
+
+
     return (
+
+
         <div style={{marginBottom:"150px",marginTop:'150px'}}>
             
-            <div className="row my-toys-card-container ">
+           {
+            myToysData?.map((data)=>(
+
+                <div key={data._id} className="row my-toys-card-container ">
                 <section className="col-md-3">
-                    <img className='my-toys-img' src="" alt="" />
+                    <img className='my-toys-img' src={data.toyPhotoUrl} alt="" />
                 </section>
 
 
-                <section className="col-md-6">
+                <section className="col-md-6 px-5">
 
                  
                    
 
-                     <p className="my-toys-p"> <span className="my-toys-span">Name:  </span>    </p>
+                     <p className="my-toys-p"> <span className="my-toys-span">Name:  </span> {data.toyName}   </p>
 
-                      <p className="my-toys-p"> <span className="my-toys-span">Sub-category:  </span>    </p>
+
+
+                      <p className="my-toys-p"> <span className="my-toys-span">Sub-category:   </span> {data.subCategory} 
+
+                      </p>
                       
-                      <p className="my-toys-p"> <span className="my-toys-span">Seller name:  </span>    </p>
+
+
+                      <p className="my-toys-p"> <span className="my-toys-span">Seller name:  </span> {data.sellerName}   
+
+                     </p>
                       
-                      <p className="my-toys-p"> <span className="my-toys-span">Seller email:  </span>    </p>
+
+
+
+                      <p className="my-toys-p"> <span className="my-toys-span">Seller email: </span> {data.sellerEmail}  
+
+                      </p>
                       
-                      <p className="my-toys-p"> <span className="my-toys-span">price:  </span>    </p>
+                      <p className="my-toys-p"> <span className="my-toys-span">price:  </span>  ${data.price}  </p>
+
+
                       
-                      <p className="my-toys-p"> <span className="my-toys-span">Rating:  </span>    </p>
+                      <div className="my-toys-p d-flex gap-1"> <span className="my-toys-span">Rating:  </span>  <Rating  style={{ maxWidth: 100 }}  value={ parseFloat(data?.rating)}  readonly />  </div>
                       
-                      <p className="my-toys-p"> <span className="my-toys-span">Available quantity:  </span>    </p>
+                      <p className="my-toys-p"> <span className="my-toys-span">Available quantity:  </span> 
+
+                      {data?.quantity}    </p>
+
+
+
                       
-                      <p className="my-toys-p"> <span className="my-toys-span">Details:  </span>    </p>
+                      <p className="my-toys-p"> <span className="my-toys-span">Details:  </span> {data?.description}   </p>
 
                      
                       
@@ -47,12 +110,15 @@ const MyToys = () => {
                  <button className="my-toys-delate-button" >Delete <RiDeleteBin6Line className='ms-2'/></button>
                  
                  </section>
+                 </div>
+            ))
+           }
 
 
 
                
 
-            </div>
+           
         </div>
     );
 };

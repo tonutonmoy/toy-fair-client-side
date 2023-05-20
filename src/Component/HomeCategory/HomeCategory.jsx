@@ -98,7 +98,8 @@ const HomeCategory = () => {
           <span className='tab-card-span'>Price: ${car?.price}</span>
           </Card.Text>
           
-           <div className='tab-card-span d-flex gap-1 my-3  '>Rating: <Rating  style={{ maxWidth: 100 }}  value={ 5}  readonly />
+           <div className='tab-card-span d-flex gap-1 my-3  '>Rating: <Rating  style={{ maxWidth: 100 }}  
+           value={ parseFloat(car?.rating)}  readonly />
           
           </div>
           <Button className='tab-card-button' variant="primary">View Details</Button>
@@ -148,7 +149,8 @@ const HomeCategory = () => {
            <span className='tab-card-span'>Price: ${car?.price}</span>
            </Card.Text>
            
-            <div className='tab-card-span d-flex gap-1 my-3  '>Rating: <Rating  style={{ maxWidth: 100 }}  value={ 5}  readonly />
+            <div className='tab-card-span d-flex gap-1 my-3  '>Rating: <Rating  style={{ maxWidth: 100 }}  
+            value={ parseFloat(car?.rating)}  readonly />
            
            </div>
            <Button className='tab-card-button' variant="primary">View Details</Button>
@@ -199,7 +201,8 @@ const HomeCategory = () => {
            <span className='tab-card-span'>Price: ${car?.price}</span>
            </Card.Text>
            
-            <div className='tab-card-span d-flex gap-1 my-3  '>Rating: <Rating  style={{ maxWidth: 100 }}  value={ 5}  readonly />
+            <div className='tab-card-span d-flex gap-1 my-3  '>Rating: <Rating  style={{ maxWidth: 100 }}  
+            value={ parseFloat(car?.rating)}  readonly />
            
            </div>
            <Button className='tab-card-button' variant="primary">View Details</Button>

@@ -6,7 +6,16 @@
     background-color: rgb(253, 255, 255);
     padding: 30px 20px;
     box-shadow: 20px 20px 20px black;
+
+    margin-top: 50px;
+
+    border: 3px solid black;
 }
+
+.my-toy-button-container{
+    position: relative;
+}
+
 .my-toys-img{
 
     width: 100%;
@@ -16,7 +25,7 @@
 .my-toys-p{
 
     margin-top: 20px;
-    font-size: 15px;
+    font-size: 20px;
 
     font-weight: 400;
 }
@@ -41,6 +50,10 @@
     font-weight: 500;
     border-radius: 10px;
     color: rgb(0, 0, 0);
+
+    position: absolute;
+
+    top: 0%;
     
 }
 .my-toys-delate-button{
@@ -58,6 +71,11 @@
     font-weight: 500;
     border-radius: 10px;
     color: rgb(3, 2, 2);
+
+    position: absolute;
+
+    top: 5%;
+
 
 }
 

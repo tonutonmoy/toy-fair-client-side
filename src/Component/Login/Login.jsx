@@ -79,7 +79,7 @@ const Login = () => {
      <p style={{fontWeight:"500",textAlign:'center'}}>First time please <Link style={{textDecoration:"none",color:"orange"}} to='/register'>Register!</Link> </p>
  
    <Button className='form-button mt-4' variant="primary" type="submit">
-    Register
+    login
    </Button>
 
    </Form>
