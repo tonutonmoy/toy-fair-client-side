@@ -4,6 +4,7 @@ import {RiDeleteBin6Line } from 'react-icons/ri';
 import { useContext, useEffect, useState } from 'react';
 import { AuthProvider } from '../../Provider/Provider';
 import { Rating } from '@smastrom/react-rating'
+import Swal from 'sweetalert2'
 
 import '@smastrom/react-rating/style.css'
 import { useNavigate } from 'react-router-dom';
@@ -44,6 +45,74 @@ const MyToys = () => {
                console.log(id)
 
                navigate(`/updateToy/${id}`)
+           }
+
+
+
+
+
+
+
+
+           const deleteButtonHandler=(id)=>{
+
+
+
+            
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+  
+                
+                fetch(`http://localhost:5000/deleteAToy/${id}`,{
+      
+                method: "DELETE"
+                
+            
+                })
+                .then(res=> res.json())
+                .then(res=>{
+    
+                    if(res.deletedCount > 0){
+                      
+                         Swal.fire(
+                             'Deleted!',
+                              'Your file has been deleted.',
+                              'success'
+                               )
+
+
+                        const filterData= myToysData?.filter(f=> f._id !== id);
+                        
+                        setMyToysData(filterData)
+                 
+                    }
+                    console.log(res)
+    
+    
+                } )
+                .catch(error=> console.log(error))
+        
+              
+  
+             
+            }
+          })
+          
+
+        
+          
+        
+    
+
+    
            }
 
 
@@ -113,7 +182,9 @@ const MyToys = () => {
                 <section className='col-md-3  my-toy-button-container '>
 
                  <button onClick={()=> updateButtonHandler(data._id)} className="my-toys-update-button" >Update <RxUpdate className='ms-2'/></button>
-                 <button className="my-toys-delate-button" >Delete <RiDeleteBin6Line className='ms-2'/></button>
+
+
+                 <button onClick={()=>deleteButtonHandler(data._id)}  className="my-toys-delate-button" >Delete <RiDeleteBin6Line className='ms-2'/></button>
                  
                  </section>
                  </div>

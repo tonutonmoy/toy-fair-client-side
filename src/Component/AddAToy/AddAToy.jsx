@@ -1,13 +1,17 @@
-import { useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import './AddAToy.css'
 
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Swal from 'sweetalert2'
+import { AuthProvider } from '../../Provider/Provider';
+
 
 
 
 const AddAToy = () => {
+
+    const {user}=useContext(AuthProvider);
 
     const addAToyHandler=(e)=>{
 
@@ -16,12 +20,14 @@ const AddAToy = () => {
         const toyPhotoUrl=e.target.toyPhotoUrl.value;
         const toyName=e.target.toyName.value;
         const sellerName=e.target.sellerName.value;
-        const sellerEmail=e.target.sellerEmail.value;
+        
         const subCategory=e.target.subCategory.value;
         const price=e.target.price.value;
         const rating=e.target.rating.value;
         const quantity=e.target.quantity.value;
         const description=e.target.description.value;
+
+        const sellerEmail=e.target.sellerEmail.value;
 
 
 
@@ -39,37 +45,37 @@ const AddAToy = () => {
 
         
 
+         
 
-        
-        
-          fetch(`http://localhost:5000/addAToy`,{
-            method:'POST',
-            headers:{
-              'content-type':'application/json'
-            },
-
-            body: JSON.stringify(addAToyInfo)
-          })
-          .then(res=>res.json())
-          .then(res=> {
+        fetch(`http://localhost:5000/addAToy`,{
+              method:'POST',
+              headers:{
+                'content-type':'application/json'
+              },
+    
+              body: JSON.stringify(addAToyInfo)
+            })
+            .then(res=>res.json())
+            .then(res=> {
+              
+              if(res.insertedId){
+    
+                Swal.fire({
+                  title: 'Success',
+                  text: 'successfully done',
+                  icon: 'success',
+                  confirmButtonText: 'Ok'
+                })
+    
+    
+                e.target.reset()
+    
+              }
+             
             
-            if(res.insertedId){
-
-              Swal.fire({
-                title: 'Success',
-                text: 'successfully done',
-                icon: 'success',
-                confirmButtonText: 'Ok'
-              })
-
-
-              e.target.reset()
-
-            }
-           
-          
-          })
-          .catch(error=>console.log(error))
+            })
+            .catch(error=>console.log(error))
+        
        
       
 
@@ -111,7 +117,7 @@ const AddAToy = () => {
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label className='form-label'>Seller Email</Form.Label>
-        <Form.Control className='form-input' type="email" name='sellerEmail' placeholder="seller email" required />
+        <Form.Control className='form-input' defaultValue={user?.email} type="email" name='sellerEmail' placeholder="seller email" required />
       </Form.Group>
    
          </div>
