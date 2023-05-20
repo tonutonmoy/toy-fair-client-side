@@ -28,6 +28,7 @@ const AllToys = () => {
         .then(res=> res.json())
          .then(res=>{
 
+           setData(res)
 
           e.target.reset()
           console.log(res)
