@@ -11,6 +11,48 @@
 
     border: 3px solid black;
 }
+.high-to-container{
+
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    margin-bottom: 100px;
+
+
+}
+.high-button{
+
+ padding: 10px ;
+ color: white;
+ background-color: rgba(0, 0, 255, 0.795);
+ border: none;
+ font-size: 18px;
+ font-weight: 500;
+ border-radius: 10px;
+
+
+}
+.high-button:hover{
+    background-color: rgba(11, 11, 77, 0.795);;
+}
+
+
+.low-button{
+
+ padding: 10px ;
+ color: white;
+ background-color: rgba(255, 153, 0, 0.747);
+ border: none;
+ font-size: 18px;
+ font-weight: 500;
+ border-radius: 10px;
+
+
+}
+
+.low-button:hover{
+    background-color: rgba(90, 58, 11, 0.904);
+}
 
 .my-toy-button-container{
     position: relative;

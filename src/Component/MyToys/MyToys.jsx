@@ -107,19 +107,36 @@ const MyToys = () => {
           })
           
 
-        
-          
-        
     
+           };
 
-    
-           }
+
+
+          const highToLowButtonHandler=(text)=>{
+           
+            fetch(`http://localhost:5000/sortByPrice?email=${user?.email}&text=${text}`)
+            .then(res=> res.json())
+            .then(res=>{
+
+                setMyToysData(res)
+
+                console.log(res)
+            })
+
+          } 
 
 
     return (
 
 
         <div style={{marginBottom:"150px",marginTop:'150px'}}>
+
+
+            <div className='high-to-container'>
+                <button onClick={()=>highToLowButtonHandler('high')} className='high-button'>High-Low</button>
+
+                <button onClick={()=>highToLowButtonHandler('low')} className='low-button'>Low-High</button>
+            </div>
             
            {
             myToysData?.map((data)=>(
