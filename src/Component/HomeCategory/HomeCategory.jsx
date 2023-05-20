@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 import { Rating } from '@smastrom/react-rating'
 
 import '@smastrom/react-rating/style.css'
+import { Link } from 'react-router-dom';
 
 
 const HomeCategory = () => {
@@ -102,7 +103,7 @@ const HomeCategory = () => {
            value={ parseFloat(car?.rating)}  readonly />
           
           </div>
-          <Button className='tab-card-button' variant="primary">View Details</Button>
+          <Button className='tab-card-button' variant="primary"><Link to={`/viewDetails/${car?._id}`}>View Details</Link></Button>
           </Card.Body>
           </Card>
           

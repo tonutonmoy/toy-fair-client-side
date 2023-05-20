@@ -8,6 +8,7 @@ import UpdateToy from "../Component/UpdateToy/UpdateToy";
 import AllToys from "../Component/AllToys/AllToys";
 import MyToys from "../Component/MyToys/MyToys";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import ViewDetails from "../Component/ViewDetails/ViewDetails";
 
 const router = createBrowserRouter([
     {
@@ -32,6 +33,18 @@ const router = createBrowserRouter([
           element: <AddAToy></AddAToy>
          
         },
+
+        {
+          path:'/viewDetails/:id',
+          element:
+           
+          <PrivateRoute>
+             <ViewDetails></ViewDetails>
+          </PrivateRoute>
+         
+       
+        },
+
         {
           path:'/updateToy/:id',
           element: <UpdateToy></UpdateToy>,
@@ -48,6 +61,8 @@ const router = createBrowserRouter([
                     <MyToys></MyToys>
                   </PrivateRoute>
         },
+
+      
 
       ]
     },

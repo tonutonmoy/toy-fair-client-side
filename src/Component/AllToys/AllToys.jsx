@@ -1,4 +1,4 @@
-import { useLoaderData } from 'react-router-dom';
+import {  Link, useLoaderData } from 'react-router-dom';
 import './AllToys.css'
 import Table from 'react-bootstrap/Table';
 import { useState } from 'react';
@@ -11,6 +11,9 @@ const AllToys = () => {
    const [data,setData]=useState(allToysData)
 
    console.log(data)
+
+   
+
 
   
 
@@ -34,7 +37,10 @@ const AllToys = () => {
           console.log(res)
          })
          .catch(error=>console.log(error))
-    }
+    };
+
+
+ 
 
     return (
         <div style={{marginTop:'100px',marginBottom:'150px'}}>
@@ -76,6 +82,15 @@ const AllToys = () => {
             <td className='table-td '>{d?.price}</td>
 
             <td className='table-td '>{d?.quantity}</td>
+
+            <td className='table-td '>
+
+              <button  className='tab-card-button' style={{borderRadius:"10px",padding:'7px'}}> 
+              
+                <Link to={`/viewDetails/${d?._id}`}>view details</Link>
+
+               </button>
+            </td>
            
           </tr>
 
