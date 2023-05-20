@@ -6,6 +6,7 @@ import { AuthProvider } from '../../Provider/Provider';
 import { Rating } from '@smastrom/react-rating'
 
 import '@smastrom/react-rating/style.css'
+import { useNavigate } from 'react-router-dom';
 
 const MyToys = () => {
 
@@ -14,7 +15,7 @@ const MyToys = () => {
         const [myToysData,setMyToysData]=useState([]);
 
        
-        
+        const navigate=useNavigate();
     
 
        
@@ -38,7 +39,12 @@ const MyToys = () => {
         },[url])
 
   
+           const updateButtonHandler=(id)=>{
 
+               console.log(id)
+
+               navigate(`/updateToy/${id}`)
+           }
 
 
     return (
@@ -106,7 +112,7 @@ const MyToys = () => {
 
                 <section className='col-md-3  my-toy-button-container '>
 
-                 <button className="my-toys-update-button" >Update <RxUpdate className='ms-2'/></button>
+                 <button onClick={()=> updateButtonHandler(data._id)} className="my-toys-update-button" >Update <RxUpdate className='ms-2'/></button>
                  <button className="my-toys-delate-button" >Delete <RiDeleteBin6Line className='ms-2'/></button>
                  
                  </section>

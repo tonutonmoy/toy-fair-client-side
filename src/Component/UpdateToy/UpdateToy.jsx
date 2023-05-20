@@ -1,7 +1,13 @@
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { useLoaderData } from 'react-router-dom';
+import Swal from 'sweetalert2'
 
 const UpdateToy = () => {
+
+    const data= useLoaderData();
+
+   console.log(data)
 
 
     const UpdateHandler=(e)=>{
@@ -20,6 +26,48 @@ const UpdateToy = () => {
         }
 
         console.log(updateInfo)
+
+
+
+        fetch(`http://localhost:5000/updateSingleToy/${data?._id}`,{
+
+
+        method: "PUT",
+  
+        headers: {
+              
+          'content-type': "application/json"
+        },
+  
+  
+        body: JSON.stringify(updateInfo)
+  
+        
+      })
+      .then(res=> res.json())
+      .then(res=>{
+
+
+        if(res.modifiedCount > 0){
+
+            Swal.fire({
+                title: 'Success',
+                text: 'update successfully',
+                icon: 'success',
+                confirmButtonText: 'Ok'
+              })
+
+              e.target.reset();
+             
+
+        }
+
+        console.log(res)
+      })
+      .catch(error=> console.log(error))
+  
+      
+       
     }
 
     return (
@@ -40,17 +88,17 @@ const UpdateToy = () => {
          
          <Form.Group className="mb-3" controlId="formBasicPassword">
          <Form.Label className='form-label'>Price</Form.Label>
-         <Form.Control className='form-input' type="number" name='price' placeholder="price" required />
+         <Form.Control className='form-input' defaultValue={data?.price} type="number" name='price' placeholder="price" required />
          </Form.Group>
          
          <Form.Group className="mb-3" controlId="formBasicPassword">
          <Form.Label className='form-label'>Available Quantity</Form.Label>
-         <Form.Control className='form-input' type="number" name='quantity' placeholder="quantity" required />
+         <Form.Control className='form-input' type="number" name='quantity' defaultValue={data?.quantity} placeholder="quantity" required />
          </Form.Group>
          
          
          <div>
-         <Form.Label className='form-label'>Description</Form.Label>
+         <Form.Label  className='form-label'>Description</Form.Label>
          
          
          <Form.Control
@@ -59,6 +107,8 @@ const UpdateToy = () => {
          style={{ height: '150px',width:"950px"}}
 
          name='description'
+
+         defaultValue={data?.description}
          
          />
          
