@@ -8,6 +8,7 @@ import Swal from 'sweetalert2'
 
 import '@smastrom/react-rating/style.css'
 import { useNavigate } from 'react-router-dom';
+import useTitle from '../../hooks/useTitle';
 
 const MyToys = () => {
 
@@ -17,10 +18,12 @@ const MyToys = () => {
 
        
         const navigate=useNavigate();
+
+        useTitle('My Toys')
     
 
        
-        const url= `http://localhost:5000/myToys?email=${user?.email}`;
+        const url= `https://toy-fair-server-side.vercel.app/myToys?email=${user?.email}`;
 
         useEffect(()=>{
            
@@ -71,7 +74,7 @@ const MyToys = () => {
             if (result.isConfirmed) {
   
                 
-                fetch(`http://localhost:5000/deleteAToy/${id}`,{
+                fetch(`https://toy-fair-server-side.vercel.app/deleteAToy/${id}`,{
       
                 method: "DELETE"
                 
@@ -114,7 +117,7 @@ const MyToys = () => {
 
           const highToLowButtonHandler=(text)=>{
            
-            fetch(`http://localhost:5000/sortByPrice?email=${user?.email}&text=${text}`)
+            fetch(`https://toy-fair-server-side.vercel.app/sortByPrice?email=${user?.email}&text=${text}`)
             .then(res=> res.json())
             .then(res=>{
 
@@ -141,7 +144,7 @@ const MyToys = () => {
            {
             myToysData?.map((data)=>(
 
-                <div key={data._id} className="row my-toys-card-container ">
+                <div key={data._id} className="row my-toys-card-container p-5">
                 <section className="col-md-3">
                     <img className='my-toys-img' src={data.toyPhotoUrl} alt="" />
                 </section>

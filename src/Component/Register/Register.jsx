@@ -7,10 +7,14 @@ import { AuthProvider } from '../../Provider/Provider';
 import { updateProfile } from 'firebase/auth';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import useTitle from '../../hooks/useTitle';
 
 const Register = () => {
 
   const {createAccount}=useContext(AuthProvider);
+
+
+  useTitle('Register')
 
   const registerHandler=(e)=>{
   

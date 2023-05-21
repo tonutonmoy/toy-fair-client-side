@@ -9,6 +9,8 @@ import AllToys from "../Component/AllToys/AllToys";
 import MyToys from "../Component/MyToys/MyToys";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import ViewDetails from "../Component/ViewDetails/ViewDetails";
+import Blog from "../Component/Blog/Blog";
+import NotFound from "../NotFound/NotFound";
 
 const router = createBrowserRouter([
     {
@@ -30,7 +32,11 @@ const router = createBrowserRouter([
         },
         {
           path:'/addAToy',
-          element: <AddAToy></AddAToy>
+          element: <PrivateRoute>
+
+                   <AddAToy></AddAToy>
+
+                 </PrivateRoute>
          
         },
 
@@ -47,13 +53,15 @@ const router = createBrowserRouter([
 
         {
           path:'/updateToy/:id',
-          element: <UpdateToy></UpdateToy>,
-          loader: ({params})=> fetch(`http://localhost:5000/updateToy/${params.id}`)
+          element: <PrivateRoute>
+                 <UpdateToy></UpdateToy>
+                </PrivateRoute>,
+          loader: ({params})=> fetch(`https://toy-fair-server-side.vercel.app/updateToy/${params.id}`)
         },
         {
           path:'/allToys',
           element: <AllToys></AllToys>,
-          loader: ()=> fetch(`http://localhost:5000/allToys`)
+          loader: ()=> fetch(`https://toy-fair-server-side.vercel.app/allToys`)
         },
         {
           path:'/myToys',
@@ -61,11 +69,20 @@ const router = createBrowserRouter([
                     <MyToys></MyToys>
                   </PrivateRoute>
         },
+        {
+          path:'/blog',
+          element: <Blog></Blog>
+        }
 
       
 
       ]
     },
+
+    {
+      path:'*',
+      element:<NotFound></NotFound>
+    }
   ]);
 
   export default router

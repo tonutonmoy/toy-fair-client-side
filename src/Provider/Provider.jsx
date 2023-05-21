@@ -15,7 +15,9 @@ import { createContext, useEffect, useState } from "react";
  const Provider = ({children}) => {
 
  
-     const [user,setUser]=useState(null)
+     const [user,setUser]=useState(null);
+
+     const [loader,setLoader]=useState(true)
  
  
  const  googleProvider= new  GoogleAuthProvider(); 
@@ -25,6 +27,8 @@ import { createContext, useEffect, useState } from "react";
 
 
  const createAccount=(email,password)=>{
+     
+     setLoader(true);
  
    return  createUserWithEmailAndPassword(auth,email,password)
  };
@@ -36,7 +40,10 @@ import { createContext, useEffect, useState } from "react";
 
  
  const login=(email,password)=>{
- 
+     
+            
+        setLoader(true);
+
         return signInWithEmailAndPassword(auth,email,password) 
  };
  
@@ -48,6 +55,8 @@ import { createContext, useEffect, useState } from "react";
  
  const googleLogIn=()=>{
  
+   setLoader(true);
+
    return  signInWithPopup(auth,googleProvider)
  };
  
@@ -60,6 +69,8 @@ import { createContext, useEffect, useState } from "react";
   const unsubscribe= onAuthStateChanged(auth,(res)=>{
  
      console.log(res)
+
+     setLoader(false);
 
      setUser(res);
 
@@ -78,7 +89,9 @@ import { createContext, useEffect, useState } from "react";
 
 
  const logOut=()=>{
- 
+      
+     setLoader(true);
+     
     return signOut(auth)
  };
  
@@ -92,7 +105,8 @@ import { createContext, useEffect, useState } from "react";
      login,
      googleLogIn,
      logOut,
-     user
+     user,
+     loader
  
  
     }

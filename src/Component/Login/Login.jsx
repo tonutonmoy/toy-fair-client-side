@@ -3,16 +3,26 @@ import './Login.css'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { FcGoogle } from 'react-icons/fc';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthProvider } from '../../Provider/Provider';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import useTitle from '../../hooks/useTitle';
 
 
 const Login = () => {
 
     const {login,googleLogIn}=useContext(AuthProvider);
 
+
+    useTitle('Login')
+
+    const location=useLocation();
+
+    const navigate=useNavigate();
+
+
+    const from = location?.state?.from?.pathname ||'/' ;
 
 
     const loginHandler=(e)=>{
@@ -30,6 +40,8 @@ const Login = () => {
 
             toast.success("Login done")
 
+            navigate(from,{replace:true})
+
             e.target.reset();
         })
         .catch(error=> console.log(error))
@@ -46,6 +58,7 @@ const Login = () => {
            if (res.user.email){
 
             toast.success("google singIn done")
+            navigate(from,{replace:true})
            }
         })
         .catch(error=>console.log(error))

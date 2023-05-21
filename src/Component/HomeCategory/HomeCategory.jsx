@@ -3,23 +3,34 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Rating } from '@smastrom/react-rating'
 
 import '@smastrom/react-rating/style.css'
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { AuthProvider } from '../../Provider/Provider';
+import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
 
 
 const HomeCategory = () => {
+
+  const {user}=useContext(AuthProvider)
+
+ 
 
   const [electricCar ,setElectricCar]=useState([])
   const [remoteCar,setRemoteCar]=useState([])
   const [manualCar,setManualCar]=useState([])
 
+
+
+  const navigate=useNavigate();
+
   useEffect(()=>{
 
 
-     fetch('http://localhost:5000/allToys')
+     fetch('https://toy-fair-server-side.vercel.app/allToys')
      .then(res=>res.json())
      .then(res=> {
 
@@ -47,7 +58,15 @@ const HomeCategory = () => {
 
  
 
-  console.log(electricCar)
+ const viewDetailsHandler=(id)=>{
+
+  if(!user){
+    toast.error("please login")
+  }
+
+  navigate(`/viewDetails/${id}`)
+
+ }
 
     return (
 
@@ -105,8 +124,8 @@ const HomeCategory = () => {
           </div>
 
           <div className='mt-4'>
-          <Link className='tab-card-button p-2 d-block text-center rounded' to={`/viewDetails/${car?._id}`}
-          style={{textDecoration:'none',color:"white"}}>View Details</Link>
+          <button onClick={()=> viewDetailsHandler(car?._id)} className='tab-card-button p-2 d-block text-center rounded' 
+          style={{textDecoration:'none',color:"white"}}>View Details</button>
           </div>
 
 
@@ -164,9 +183,9 @@ const HomeCategory = () => {
 
 
 
-        <div className='mt-4'>
-          <Link className='tab-card-button p-2 d-block text-center rounded' to={`/viewDetails/${car?._id}`}
-          style={{textDecoration:'none',color:"white"}}>View Details</Link>
+           <div className='mt-4'>
+          <button onClick={()=> viewDetailsHandler(car?._id)} className='tab-card-button p-2 d-block text-center rounded' 
+          style={{textDecoration:'none',color:"white"}}>View Details</button>
           </div>
 
 
@@ -225,8 +244,8 @@ const HomeCategory = () => {
 
 
            <div className='mt-4'>
-          <Link className='tab-card-button p-2 d-block text-center rounded' to={`/viewDetails/${car?._id}`}
-          style={{textDecoration:'none',color:"white"}}>View Details</Link>
+          <button onClick={()=> viewDetailsHandler(car?._id)} className='tab-card-button p-2 d-block text-center rounded' 
+          style={{textDecoration:'none',color:"white"}}>View Details</button>
           </div>
 
 

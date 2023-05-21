@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import {  Card } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import { Rating } from '@smastrom/react-rating'
+import useTitle from '../../hooks/useTitle';
 
 const ViewDetails = () => {
 
@@ -9,10 +10,12 @@ const ViewDetails = () => {
 
     const [data,setData]=useState([]);
 
+    useTitle('View Details')
+
     useEffect(()=>{
 
 
-        fetch(`http://localhost:5000/viewDetails/${id}`)
+        fetch(`https://toy-fair-server-side.vercel.app/viewDetails/${id}`)
         .then(res=>res.json())
         .then(res=> {
          

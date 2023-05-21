@@ -2,13 +2,14 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useLoaderData } from 'react-router-dom';
 import Swal from 'sweetalert2'
+import useTitle from '../../hooks/useTitle';
 
 const UpdateToy = () => {
 
     const data= useLoaderData();
 
-   console.log(data)
-
+ 
+    useTitle('Update')
 
     const UpdateHandler=(e)=>{
 
@@ -29,7 +30,7 @@ const UpdateToy = () => {
 
 
 
-        fetch(`http://localhost:5000/updateSingleToy/${data?._id}`,{
+        fetch(`https://toy-fair-server-side.vercel.app/updateSingleToy/${data?._id}`,{
 
 
         method: "PUT",

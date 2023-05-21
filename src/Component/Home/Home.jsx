@@ -1,3 +1,4 @@
+import useTitle from '../../hooks/useTitle';
 import HomeBanner from '../HomeBanner/HomeBanner';
 import HomeCategory from '../HomeCategory/HomeCategory';
 import HomeGallery from '../HomeGallery/HomeGallery';
@@ -6,6 +7,8 @@ import HomeService from '../HomeService/HomeService';
 import './Home.css'
 
 const Home = () => {
+
+    useTitle('Home')
     return (
 
         

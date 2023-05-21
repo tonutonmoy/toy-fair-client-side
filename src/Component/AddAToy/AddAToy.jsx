@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Swal from 'sweetalert2'
 import { AuthProvider } from '../../Provider/Provider';
+import useTitle from '../../hooks/useTitle';
 
 
 
@@ -12,6 +13,8 @@ import { AuthProvider } from '../../Provider/Provider';
 const AddAToy = () => {
 
     const {user}=useContext(AuthProvider);
+
+    useTitle('Add A Toy')
 
     const addAToyHandler=(e)=>{
 
@@ -47,7 +50,7 @@ const AddAToy = () => {
 
          
 
-        fetch(`http://localhost:5000/addAToy`,{
+        fetch(`https://toy-fair-server-side.vercel.app/addAToy`,{
               method:'POST',
               headers:{
                 'content-type':'application/json'

@@ -13,7 +13,10 @@ import { ToastContainer, toast } from 'react-toastify';
 
 const NavigationBar = () => {
 
-    const {logOut}=useContext(AuthProvider);
+    const {logOut,user}=useContext(AuthProvider);
+
+
+    console.log(user)
   
     const logOutHandler=()=>{
 
@@ -32,7 +35,7 @@ const NavigationBar = () => {
           <Navbar.Brand className='me-3 pe-3 me-md-5 pe-md-5 nav-title ' href="#home">Toy.fair</Navbar.Brand>
           <div className='me-md-5 pe-md-5 me-0 pe-0 '>
 
-            <img src={logo} alt="" style={{width:'60px',height:'60px',borderRadius:"100%"}} />
+            <img className='nav-img' src={logo} alt="" style={{width:'60px',height:'60px',borderRadius:"100%"}} />
 
 
 
@@ -45,42 +48,57 @@ const NavigationBar = () => {
         <div className='d-md-flex justify-content-around gap-5 align-items-center' >
 
 
-                <div>
+                <div className=' my-md-4 mt-5'>
                     <ActiveLink to='/'>Home</ActiveLink>
                 </div>
 
-                <div>
+                <div className=' my-md-4 mt-5'>
                     <ActiveLink to='/allToys'>All Toys</ActiveLink>
                 </div>
 
-                <div>
-                    <ActiveLink to='/login'>Login</ActiveLink>
+                <div className=' my-md-4 mt-5'>
+                    <ActiveLink to='/blog'>Blog</ActiveLink>
                 </div>
 
+               
+
+               {
 
 
-            <div className='d-md-flex justify-content-around gap-5 align-items-center '>
-
-
-
-                  
-                <div>
+                  user?  
+                    
+                    
+                    <div className='d-md-flex justify-content-around gap-5 align-items-center '>
+                    
+                    <div className=' my-md-4 mt-5'>
                     <ActiveLink to='/addAToy'>Add A Toy</ActiveLink>
-                </div>
-
-                <div>
+                    </div>
+                    
+                    <div className=' my-md-4 mt-5'>
                     <ActiveLink to='/myToys'>My  Toys</ActiveLink>
-                </div>
+                    </div>
+                    
+                    <div  className=' my-md-4 mt-5'>
+                    <img className='nav-img' src={user?.photoURL} alt="" style={{width:'60px',height:'60px',borderRadius:"100%"}}
+                     title={user?.displayName} />
+                    </div>
+                    
+                    <div  className=' my-md-4 mt-5'>
+                    <button className='log-out-button btn btn-primary' onClick={logOutHandler}>LogOut</button>
+                    </div>
+                    
+                    </div>    
+                    
+                    
 
-                <div >
-                    <img src={logo} alt="" style={{width:'60px',height:'60px',borderRadius:"100%"}}/>
-                </div>
+                  :  <div className=' my-md-4 mt-5'>
+                    <ActiveLink to='/login'>Login</ActiveLink>
+                    </div>
+                    
 
-                <div >
-                    <button onClick={logOutHandler}>LogOut</button>
-                </div>
+               }
 
-            </div>
+
             <ToastContainer/>
         </div>
              

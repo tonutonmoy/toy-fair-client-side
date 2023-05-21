@@ -2,6 +2,7 @@ import {  Link, useLoaderData } from 'react-router-dom';
 import './AllToys.css'
 import Table from 'react-bootstrap/Table';
 import { useState } from 'react';
+import useTitle from '../../hooks/useTitle';
 
 
 const AllToys = () => {
@@ -10,7 +11,7 @@ const AllToys = () => {
 
    const [data,setData]=useState(allToysData)
 
-   console.log(data)
+   useTitle('All Toys')
 
    
 
@@ -27,7 +28,7 @@ const AllToys = () => {
 
 
 
-        fetch(`http://localhost:5000/findByToyName?name=${toyName}`)
+        fetch(`https://toy-fair-server-side.vercel.app/findByToyName?name=${toyName}`)
         .then(res=> res.json())
          .then(res=>{
 
@@ -73,7 +74,7 @@ const AllToys = () => {
 
             <tr className='table-tr ' key={d?._id}>
 
-            <td className='table-td '>{i+1}</td>
+            <td className='table-td '>{d?.sellerName}</td>
 
             <td className='table-td '>{d?.toyName}</td>
 
