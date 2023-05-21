@@ -4,27 +4,52 @@ import partners2 from '../../assets/partners/Evaly-logo-01.jpg'
 import partners3 from '../../assets/partners/shwapno-to-sell-potatoes-at-tk30-per-kg-1603177033315.jpg'
 import partners4 from '../../assets/partners/107840887_634876424050632_5417712448806927608_n.jpg'
 
+import Aos from 'aos';
+
+import 'aos/dist/aos.css'
+import { useEffect } from 'react'
+
 const HomePartners = () => {
+
+
+    useEffect(()=>{
+
+        Aos.init({duration: 2000})
+    },[])
+
+
     return (
         <div className='my-5'>
-           <h2 className='Shop-by-category'>Our online partners</h2>
+           <h2  className='Shop-by-category'>Our online partners</h2>
 
-           <div className='row row-cols-md-4 container mx-auto text-center'>
 
-            <div className='home-partners-img-container'>
+
+           <div data-aos="flip-left" className='row row-cols-md-4 container mx-auto text-center'>
+
+            <div  className='home-partners-img-container'>
                 <img className='home-partners-img' src={partners1} alt="" />
             </div>
+
+
             <div className='home-partners-img-container'>
                 <img className='home-partners-img' src={partners2} alt="" />
             </div>
+
+
             <div className='home-partners-img-container'>
                 <img className='home-partners-img' src={partners3} alt="" />
             </div>
+
+
+
             <div className='home-partners-img-container'>
                 <img className='home-partners-img' src={partners4} alt="" />
             </div>
 
            </div>
+
+
+           
         </div>
     );
 };

@@ -3,16 +3,30 @@ import {BsCart3 } from 'react-icons/bs';
 import {BiDownload,BiPhoneCall } from 'react-icons/bi';
 import {TbTruckDelivery } from 'react-icons/tb';
 
+import Aos from 'aos';
+
+import 'aos/dist/aos.css'
+import { useEffect } from 'react'
+
 const HomeService = () => {
+
+
+
+    useEffect(()=>{
+
+        Aos.init({duration: 2000})
+    },[])
+
+
     return (
         <div style={{marginBottom:'150px'}}>
             <h2 className='Shop-by-category'>Our services</h2>
 
 
-            <div className=' row row-cols-md-2 w-75 mx-auto'>
+            <div  className=' row row-cols-md-2 w-75 mx-auto'>
 
 
-               <section className='d-md-flex gap-5 services-section align-items-center'>
+               <section data-aos="fade-right" className='d-md-flex gap-5 services-section align-items-center'>
                 <div className='services-img-container'>
                    
                     <BsCart3 className='services-img'/>
@@ -27,7 +41,7 @@ const HomeService = () => {
 
 
 
-               <section className='d-md-flex gap-5 services-section align-items-center'>
+               <section data-aos="fade-left" className='d-md-flex gap-5 services-section align-items-center'>
                 <div className='services-img-container'>
                     
                     <BiDownload className='services-img'/>
@@ -43,7 +57,7 @@ const HomeService = () => {
 
 
 
-               <section className='d-md-flex gap-5 services-section align-items-center'>
+               <section data-aos="fade-right" className='d-md-flex gap-5 services-section align-items-center'>
                 <div className='services-img-container'>
                     
                     <BiPhoneCall className='services-img'/>
@@ -58,7 +72,7 @@ const HomeService = () => {
 
 
 
-               <section className='d-md-flex gap-5 services-section align-items-center '>
+               <section data-aos="fade-left" className='d-md-flex gap-5 services-section align-items-center '>
                 <div className='services-img-container'>
                    
                     <TbTruckDelivery className='services-img'/>
