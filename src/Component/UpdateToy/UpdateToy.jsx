@@ -58,7 +58,7 @@ const UpdateToy = () => {
                 confirmButtonText: 'Ok'
               })
 
-              e.target.reset();
+             
              
 
         }
@@ -89,7 +89,7 @@ const UpdateToy = () => {
          
          <Form.Group className="mb-3" controlId="formBasicPassword">
          <Form.Label className='form-label'>Price</Form.Label>
-         <Form.Control className='form-input' defaultValue={data?.price} type="number" name='price' placeholder="price" required />
+         <Form.Control className='form-input' type="number" name='price' defaultValue={data?.price} placeholder="price" required />
          </Form.Group>
          
          <Form.Group className="mb-3" controlId="formBasicPassword">
