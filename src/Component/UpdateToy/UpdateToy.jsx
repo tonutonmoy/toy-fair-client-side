@@ -98,14 +98,20 @@ const UpdateToy = () => {
          </Form.Group>
          
          
-         <div>
+        
+
+</div>
+
+
+
+     <div>
          <Form.Label  className='form-label'>Description</Form.Label>
          
          
          <Form.Control
          as="textarea"
          placeholder="Detail description"
-         style={{ height: '150px',width:"950px"}}
+         style={{ height: '150px',width:"100%"}}
 
          name='description'
 
@@ -114,12 +120,6 @@ const UpdateToy = () => {
          />
          
          </div>
-
-</div>
-
-
-
-
 
 
 

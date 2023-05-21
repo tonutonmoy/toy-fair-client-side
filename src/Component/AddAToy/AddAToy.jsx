@@ -155,18 +155,7 @@ const AddAToy = () => {
       </Form.Group>
 
        
-        <div>
-        <Form.Label className='form-label'>Description</Form.Label>
-      
-        
-        <Form.Control
-          as="textarea"
-          placeholder="Detail description"
-          style={{ height: '150px',width:"950px"}}
-          name='description'
-        />
-         
-        </div>
+     
    
          </div>
 
@@ -176,7 +165,20 @@ const AddAToy = () => {
 
 
 
+         <div>
+        <Form.Label className='form-label'>Description</Form.Label>
+      
+        
+        <Form.Control
+          as="textarea"
+          placeholder="Detail description"
+          style={{ height: '150px',width:"100%"}}
+          name='description'
 
+          
+        />
+         
+        </div>
 
 
        <div className='text-center'>

@@ -9,6 +9,9 @@ import Swal from 'sweetalert2'
 import '@smastrom/react-rating/style.css'
 import { useNavigate } from 'react-router-dom';
 import useTitle from '../../hooks/useTitle';
+import Table from 'react-bootstrap/Table';
+
+
 
 const MyToys = () => {
 
@@ -140,80 +143,106 @@ const MyToys = () => {
 
                 <button onClick={()=>highToLowButtonHandler('low')} className='low-button'>Low-High</button>
             </div>
-            
-           {
-            myToysData?.map((data)=>(
-
-                <div key={data._id} className="row my-toys-card-container p-5">
-                <section className="col-md-3">
-                    <img className='my-toys-img' src={data.toyPhotoUrl} alt="" />
-                </section>
-
-
-                <section className="col-md-6 px-5">
-
-                 
-                   
-
-                     <p className="my-toys-p"> <span className="my-toys-span">Name:  </span> {data.toyName}   </p>
 
 
 
-                      <p className="my-toys-p"> <span className="my-toys-span">Sub-category:   </span> {data.subCategory} 
-
-                      </p>
-                      
-
-
-                      <p className="my-toys-p"> <span className="my-toys-span">Seller name:  </span> {data.sellerName}   
-
-                     </p>
-                      
 
 
 
-                      <p className="my-toys-p"> <span className="my-toys-span">Seller email: </span> {data.sellerEmail}  
-
-                      </p>
-                      
-                      <p className="my-toys-p"> <span className="my-toys-span">price:  </span>  ${data.price}  </p>
 
 
-                      
-                      <div className="my-toys-p d-flex gap-1"> <span className="my-toys-span">Rating:  </span>  <Rating  style={{ maxWidth: 100 }}  value={ parseFloat(data?.rating)}  readonly />  </div>
-                      
-                      <p className="my-toys-p"> <span className="my-toys-span">Available quantity:  </span> 
-
-                      {data?.quantity}    </p>
+             
 
 
+            <Table className=' my-toys-table-container' striped bordered hover>
+      <thead>
+        <tr className='my-toys-table-tr'>
+          
+          <th className='my-toys-table-th'>Photo</th>
+          <th className='my-toys-table-th'>Toy Name</th>
+          <th className='my-toys-table-th'>Seller Name</th>
+          <th className='my-toys-table-th'>Seller email</th>
+          <th className='my-toys-table-th'>Sub-category</th>
+          <th className='my-toys-table-th'>price</th>
+          <th className='my-toys-table-th'>Rating</th>
+          <th className='my-toys-table-th'>Available Quantity</th>
+          <th className='my-toys-table-th'>Details</th>
+         
+        </tr>
+      </thead>
+      <tbody>
+      
 
-                      
-                      <p className="my-toys-p"> <span className="my-toys-span">Details:  </span> {data?.description}   </p>
-
-                     
-                      
-
-
-                     
-                </section>
-
-
-                <section className='col-md-3  my-toy-button-container '>
-
-                 <button onClick={()=> updateButtonHandler(data._id)} className="my-toys-update-button" >Update <RxUpdate className='ms-2'/></button>
-
-
-                 <button onClick={()=>deleteButtonHandler(data._id)}  className="my-toys-delate-button" >Delete <RiDeleteBin6Line className='ms-2'/></button>
-                 
-                 </section>
-                 </div>
-            ))
-           }
+        {
+          myToysData?.map((d,i)=>(
 
 
+            <tr className='my-toys-table-td ' key={d?._id}>
 
-               
+
+            {/* photo  start*/}
+            <td className='my-toys-table-td '>
+
+                <img className='my-toys-img' src={d?.toyPhotoUrl} alt="" />
+            </td>
+
+            {/* photo end */}
+
+
+
+            <td className='my-toys-table-td '>{d?.toyName}</td>
+
+            <td className='my-toys-table-td '>{d?.sellerName}</td>
+
+            <td className='my-toys-table-td '>{d?.sellerEmail}</td>
+
+           
+
+
+
+            <td className='my-toys-table-td '>{d?.subCategory}</td>
+
+
+
+            <td className='my-toys-table-td '>{d?.price}</td>
+
+            <td className='my-toys-table-td '>{d?.rating}</td>
+
+
+
+            <td className='my-toys-table-td '>{d?.quantity}</td>
+
+            <td className='my-toys-table-td '>{d?.description.slice(0,50)}see more...</td>
+
+
+
+           {/* button start */}
+            <td className='my-toys-table-td '>
+
+            <section className=' my-toy-button-container '>
+
+              <button onClick={()=> updateButtonHandler(d._id)} className="my-toys-update-button " >Update </button>
+              
+              
+              <button onClick={()=>deleteButtonHandler(d._id)}  className="my-toys-delete-button  " >Delete  </button>
+              
+              </section>
+              
+            </td>
+            {/* button end */}
+
+           
+          </tr>
+
+          ))
+        }
+       
+      </tbody>
+    </Table>
+
+
+
+  
 
            
         </div>

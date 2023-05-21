@@ -45,7 +45,7 @@ const NavigationBar = () => {
            
 
 
-        <div className='d-md-flex justify-content-around gap-5 align-items-center' >
+        <div className='d-md-flex justify-content-around gap-4 align-items-center' >
 
 
                 <div className=' my-md-4 mt-5'>
