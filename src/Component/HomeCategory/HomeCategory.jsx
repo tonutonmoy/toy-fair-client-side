@@ -61,7 +61,7 @@ const HomeCategory = () => {
  const viewDetailsHandler=(id)=>{
 
   if(!user){
-    toast.error("please login")
+    toast.error( "You have to log in first to view details")
   }
 
   navigate(`/viewDetails/${id}`)

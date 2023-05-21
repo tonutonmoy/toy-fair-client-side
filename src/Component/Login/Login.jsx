@@ -44,7 +44,10 @@ const Login = () => {
 
             e.target.reset();
         })
-        .catch(error=> console.log(error))
+        .catch(error=> {
+
+          toast.error( error.message)
+          console.log(error)})
 
     }
 
@@ -61,7 +64,11 @@ const Login = () => {
             navigate(from,{replace:true})
            }
         })
-        .catch(error=>console.log(error))
+        .catch(error=>{
+          
+          toast.error(error.message)
+
+          console.log(error)})
 
 
     }

@@ -40,6 +40,8 @@ const Register = () => {
         e.target.reset();
     })
     .catch(error=>{
+
+      toast.error(error.message)
       console.log(error)
     })
   }
@@ -56,7 +58,11 @@ const Register = () => {
       
 
     })
-    .catch(error=> console.log(error))
+    .catch(error=> {
+      
+     
+
+      console.log(error)})
   }
 
 
